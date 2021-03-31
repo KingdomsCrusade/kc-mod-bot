@@ -1,0 +1,8 @@
+{
+    "PREFIX": "insertYourBasePrefix",
+    "mongoPath": "insertMongoURI",
+    "TENORKEY": "insertGifKeyHere(optional - not needed yet)",
+    "version": "KC Bot - Version 1.0.5",
+    "bot-token": "insertYourBotTokenHere",
+    "embedIcon": "https://i.imgur.com/wNvajsi.png"
+}
