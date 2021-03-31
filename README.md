@@ -1,3 +1,5 @@
+![Banner](https://imgur.com/a/Zh6AY5Z.png)
+
 # kc-mod-bot
 The KC Moderation bot for our community Discord server!
 
