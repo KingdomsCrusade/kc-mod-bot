@@ -13,3 +13,14 @@ A `config.json` file is required for the bot to run. Replace the values in `temp
 Using a command line, `cd` to the location of the bots files. Run `npm i`, this will install all of its dependencies. Then run the bot with either `npm run dev` or `npm start`, using the dev script will force the bot to restart when its files are changed.
 
 You may also need to change channel and guild IDs in some of the `commands` and `scripts`.
+
+# To-Do List
+The following additions are planned to be implemented:
+ * Starboard
+ * Fun Commands
+ * Mute, Ban, Kick, Clear Commands
+ * Reaction Roles
+ * Haha Board
+ * Board of Shame/Delete votes
+ * NameMC Commands
+ * Help/Commands-List Command
