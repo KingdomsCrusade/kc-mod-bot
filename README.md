@@ -18,9 +18,12 @@ You may also need to change channel and guild IDs in some of the `commands` and 
 The following additions are planned to be implemented:
  * Starboard
  * Fun Commands
- * Mute, Ban, Kick, Clear Commands
+ * Mute, Ban, Kick, ~~Clear~~ Commands
  * Reaction Roles
  * Haha Board
  * Board of Shame/Delete votes
  * NameMC Commands
  * Help/Commands-List Command
+
+# Testing/Discord
+To see how the bot works join the [KC Discord](htpps://discord.gg/vEMr42p)!
