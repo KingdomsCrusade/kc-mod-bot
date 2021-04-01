@@ -26,4 +26,4 @@ The following additions are planned to be implemented:
  * Help/Commands-List Command
 
 # Testing/Discord
-To see how the bot works join the [KC Discord](htpps://discord.gg/vEMr42p)!
+To see how the bot works join the KC [Discord](https://discord.gg/vEMr42p)!
