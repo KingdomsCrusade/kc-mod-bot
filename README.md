@@ -16,7 +16,7 @@ You may also need to change channel and guild IDs in some of the `commands` and 
 
 # To-Do List
 The following additions are planned to be implemented:
- * Starboard
+ * ~~Starboard ~~
  * Fun Commands
  * Mute, Ban, Kick, ~~Clear~~ Commands
  * Reaction Roles
