@@ -16,7 +16,7 @@ You may also need to change channel and guild IDs in some of the `commands` and 
 
 # To-Do List
 The following additions are planned to be implemented:
- ~~Starboard ~~
+
  * Fun Commands
  * Mute, Ban, Kick, ~~Clear~~ Commands
  * Reaction Roles
@@ -24,6 +24,7 @@ The following additions are planned to be implemented:
  * Board of Shame/Delete votes
  * NameMC Commands
  * Help/Commands-List Command
+ ~~Starboard ~~
 
 # Testing/Discord
 To see how the bot works join the KC [Discord](https://discord.gg/vEMr42p)!
