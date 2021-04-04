@@ -24,7 +24,7 @@ The following additions are planned to be implemented:
  * Board of Shame/Delete votes
  * NameMC Commands
  * Help/Commands-List Command
- ~~Starboard ~~
+
 
 # Testing/Discord
 To see how the bot works join the KC [Discord](https://discord.gg/vEMr42p)!
