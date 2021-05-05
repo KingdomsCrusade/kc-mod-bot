@@ -9,6 +9,7 @@ module.exports  = {
     expectedArgs: '',
     minArgs: 0,
     maxArgs: 0,
+    description: 'Shows the uptime of the bot.',
     callback: (message, arguments, text) => {
 
         let days = Math.floor(message.client.uptime / 86400000);
@@ -24,7 +25,7 @@ module.exports  = {
            .addField("Seconds", `${seconds}`)
            .setColor('#a3ebfb')
            .setFooter(`${version}`, embedIcon)
-       message.channel.send(embed);
+       message.lineReplyNoMention(embed);
     },
     permissions: 'SEND_MESSAGES'
 }

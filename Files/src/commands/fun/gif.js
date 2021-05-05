@@ -1,4 +1,5 @@
-const TENORKEY = require("../../config.json")
+const fs = require('fs')
+const { TENORKEY } = require('../../config.json')
 const { Client, Channel } = require ('discord.js')
 const client = new Client()
 const fetch = require('node-fetch')
@@ -6,17 +7,18 @@ const fetch = require('node-fetch')
 module.exports  = {
     commands:['gif'],
     expectedArgs: '<searchTopic>',
-    minArgs: 1,
-    maxArgs: 1,
+    minArgs: 0,
     callback: async (message, arguments, text) => {
         try { 
-        let keywords = message.mentions.channels.first();
-        let url = `https://api.tenor.com/v1/search?q=${keywords}&key=${process.env.TENORKEY}&contentfilter=high`;
-        let response = await fetch(url);
+        keywords = arguments.join(" ")
+        let tenorURL = `https://api.tenor.com/v1/search?q=${keywords}&key=${TENORKEY}&contentfilter=high`;
+        let response = await fetch(tenorURL);
         let json = await response.json();
-        message.channel.send(json.results.url);
+        const index = Math.floor(Math.random() * json.results.length);
+        gif = json.results[index].url
+        message.lineReplyNoMention(gif);
     } catch (error) {
-        message.reply(`error!\n${error.message}`)
+        message.lineReplyNoMention(`Error!\n${error.message}`)
         .then(message => {
          setTimeout(() => message.delete(), 10000)
         })

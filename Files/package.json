@@ -1,18 +1,27 @@
 {
   "name": "kc-bot",
-  "version": "1.0.5",
-  "description": "kc-mod-bot - Zaczer",
+  "version": "1.0.6",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node ./src/index.js",
     "dev": "nodemon ./src/index.js"
   },
   "author": "Zaczer",
-  "license": "MIT",
+  "license": "ISC",
   "dependencies": {
+    "canvas": "^2.7.0",
+    "crypto": "^1.0.1",
+    "discord-reply": "^0.1.2",
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
-    "fs": "0.0.1-security",
+    "fs": "^0.0.1-security",
+    "http": "0.0.1-security",
+    "https": "^1.0.0",
+    "moment": "^2.29.1",
+    "mongo": "^0.1.0",
+    "mongoose": "^5.12.5",
+    "path": "^0.12.7",
     "unirest": "^0.6.0"
   },
   "devDependencies": {

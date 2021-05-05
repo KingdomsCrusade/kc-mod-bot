@@ -9,7 +9,7 @@ module.exports = {
   callback: async (message, arguments, text) => {
     const target = message.mentions.users.first()
     if (!target) {
-      message.reply('Please specify a user to load the warnings for.')
+      message.lineReplyNoMention('Please specify a user to load the warnings for.')
       return
     }
 
@@ -33,10 +33,10 @@ module.exports = {
           ).toLocaleDateString()} for "${reason}"\n\n`
         }
     } catch {
-        message.reply('no previous warnings found.')
+        message.lineReplyNoMention('No previous warnings found.')
         return
     }
-        message.reply(reply)
+        message.lineReplyNoMention(reply)
       } finally {
         mongoose.connection.close()
       }

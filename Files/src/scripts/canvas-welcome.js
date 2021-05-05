@@ -3,15 +3,24 @@
 const Canvas = require('canvas')
 const { MessageAttachment } = require('discord.js')
 const path = require('path')
+const { getChannelId } = require('../commands/moderation/set-welcome')
+
 module.exports = (client) => {
   client.on('guildMemberAdd', async (member) => {
     // Async function
     // Destructure the guild property from the member object
     const { guild } = member
     // Access the channel ID for this guild from the cache
-    const channelId = '743530164041809932'
-    // Access the actual channel and send the message
+    const channelId = getChannelId(guild.id)
+    if (!channelId) {
+      return
+    }
+
     const channel = guild.channels.cache.get(channelId)
+    if (!channel) {
+      return
+    }
+
     // Create a canvas and access the 2d context
     const canvas = Canvas.createCanvas(700, 250)
     const ctx = canvas.getContext('2d')
@@ -44,8 +53,14 @@ module.exports = (client) => {
     ctx.fillText(text, x, 100 + pfp.height)
     // Attach the image to a message and send it
     const attachment = new MessageAttachment(canvas.toBuffer())
-    const targetChannelID = '698580298182688809' //Rules
-    const targetChannelID2 = '805737859881369650' //Info
-    channel.send(`Welcome, <@${member.id}> to Kingdoms Crusade! Make sure you read ${member.guild.channels.cache.get(targetChannelID).toString()} and ${member.guild.channels.cache.get(targetChannelID2).toString()}!`, attachment)
+  
+    if (channelId === '743530164041809932') {
+      const targetChannelID = '698580298182688809' //Rules
+      const targetChannelID2 = '805737859881369650' //Info
+      channel.send(`Welcome, <@${member.id}> to Kingdoms Crusade! Make sure you read ${member.guild.channels.cache.get(targetChannelID).toString()} and ${member.guild.channels.cache.get(targetChannelID2).toString()}!`, attachment)
+    } else {
+
+    channel.send(`Welcome, <@${member.id}>!`, attachment)
+    }
   })
 }

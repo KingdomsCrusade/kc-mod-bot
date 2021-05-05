@@ -23,7 +23,7 @@ module.exports = {
                     upsert: true
                 })
 
-                message.reply(`the prefix for this bot is now \`${prefix}\``)
+                message.lineReplyNoMention(`The prefix for this bot is now \`${prefix}\`!`)
             } finally {
                 mongoose.connection.close()
             }

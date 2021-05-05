@@ -10,18 +10,18 @@ module.exports  = {
 
         const amount = arguments.join(" ");
 
-        if(!amount) return message.reply('please provide an amount of messages for me to delete!')
+        if(!amount) return message.lineReplyNoMention('Please provide an amount of messages for me to delete!')
 
-        if(amount > 100) return message.reply(`you cannot clear more than 100 messages at once.`)
+        if(amount > 1000) return message.lineReplyNoMention(`You cannot clear more than 100 messages at once.`)
 
         await message.channel.messages.fetch({limit: amount}).then(messages => {
             message.channel.bulkDelete(messages
     )});
 
 
-    message.channel.send(`Deleted ${amount} messages!`)
+    message.lineReplyNoMention(`Deleted ${amount} messages!`)
     .then(message => {
-      setTimeout(() => message.delete(), 2000)
+      setTimeout(() => message.delete(), 5000)
      })
 
     },

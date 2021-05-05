@@ -6,7 +6,7 @@ module.exports = {
         //Use targeted channel
         const targetChannel = message.mentions.channels.first();
         if (!targetChannel) {
-            message.reply('please specifiy channel.')
+            message.lineReplyNoMention('Please specifiy channel.')
             .then(message => {
                 setTimeout(() => message.delete(), 10000)
                })
@@ -24,14 +24,14 @@ module.exports = {
         targetChannel.send(text)
 
         //Reply to confirm
-        message.reply('message sent!')
+        message.lineReplyNoMention('Message sent!')
         .then(message => {
             setTimeout(() => message.delete(), 2000)
            })
         message.delete()
 
        } catch (error) {
-           message.reply(`error! ${error.message}`)
+           message.lineReplyNoMention(`Error! ${error.message}`)
        }
     },
     permissions: 'MANAGE_GUILD'

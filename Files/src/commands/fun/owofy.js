@@ -9,7 +9,7 @@ module.exports  = {
     minArgs: 1,
     callback: (message, arguments, text) => {
         let sentence = arguments.join(' ');
-    if (!sentence) return message.reply('I can\'t owo-fy an empty message! uwu');
+    if (!sentence) return message.lineReplyNoMention('I can\'t owo-fy an empty message! uwu');
     
     let faces=["(・`ω´・)",";;w;;","owo","UwU",">w<","^w^"];
 
@@ -22,7 +22,7 @@ module.exports  = {
       newSentence = newSentence.replace(/ove/g, "uv");
       newSentence = newSentence.replace(/\!+/g, " "+ faces[Math.floor(Math.random()*faces.length)]+ " ");
     // fuck you this is now finished
-    message.channel.send(newSentence);
+    message.lineReplyNoMention(newSentence);
     message.delete()
     },
     permissions: 'SEND_MESSAGES'

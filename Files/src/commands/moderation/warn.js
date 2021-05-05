@@ -9,7 +9,7 @@ module.exports = {
   callback: async (message, arguments) => {
     const target = message.mentions.users.first()
     if (!target) {
-      message.reply('please mention someone to warn!')
+      message.lineReplyNoMention('Please mention someone to warn!')
       .then(message => {
         setTimeout(() => message.delete(), 2000)
        })
@@ -48,6 +48,7 @@ module.exports = {
         )
       } finally {
         mongoose.connection.close()
+        message.lineReplyNoMention('Target warned.')
       }
     })
   },

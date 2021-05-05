@@ -1,7 +1,14 @@
 const mongo = require('../mongo')
+const fs = require('fs')
 const commandPrefixSchema = require('../schemas/command-prefix-schema')
 const guildPrefixes = {} // { 'guildID' : 'prefix' }
 const { prefix: globalPrefix } = require('../config.json')
+const { Client, Channel } = require ('discord.js')
+const client = new Client();
+const Discord = require('discord.js')
+const { version } = require ('../config.json')
+const { embedIcon } = require ('../config.json')
+
 //Ensures permissions listed in commands are valid.
 const validatePermissions = (permissions) => {
     const validatePermissions = [
@@ -66,28 +73,34 @@ module.exports = (client, commandOptions) => {
 
     
 
-    // Ensure permissions are in and array and valid.
+    //Ensure permissions are in and array and valid.
     if (permissions.length) {
         if (typeof permissions === 'string') {
             permissions = [permissions]
         }
         validatePermissions(permissions)
     }
-    // Listen for messages.
+    //Listen for messages.
     client.on('message', message => {
         const { member, content, guild } = message
-        const prefix = guildPrefixes[guild.id] || globalPrefix
+        
+       try { const prefix = guildPrefixes[guild.id] || globalPrefix} catch { return }
 
         for (const alias of commands) {
-            if (content.toLowerCase().startsWith(`${prefix}${alias.toLowerCase()}`)) {
-                // A command has been ran.
+            const command = `${prefix}${alias.toLowerCase()}`
+      
+            if (
+              content.toLowerCase().startsWith(`${command} `) ||
+              content.toLowerCase() === command
+            ) {
+              //A command has been ran
 
-                // Ensure user has required permissions.
+                //Ensure user has required permissions.
                 for (const permission of permissions) {
                     if (!member.hasPermission(permission)) {
-                        message.reply(permissionError)
+                        message.lineReplyNoMention(permissionError)
                         .then(message => {
-                            setTimeout(() => message.delete(), 10000)
+                            setTimeout(() => message.delete(), 3000)
                            })
                         return
                     }
@@ -98,9 +111,9 @@ module.exports = (client, commandOptions) => {
                     role.name == requiredRole)
 
                     if (!role || member.roles.cache.has(role.id)) {
-                        member.reply(`You must have the "${requiredRole} role to use this command.`)
+                        member.lineReplyNoMention(`You must have the "${requiredRole} role to use this command.`)
                         .then(message => {
-                            setTimeout(() => message.delete(), 10000)
+                            setTimeout(() => message.delete(), 3000)
                            })
                         return
                     }
@@ -113,14 +126,14 @@ module.exports = (client, commandOptions) => {
                 if (arguments.length < minArgs || (
                     maxArgs !== null && arguments.length > maxArgs
                 )) {
-                    message.reply(`Incorret syntax! Use ${prefix}${alias} ${expectedArgs}.`)
+                    message.lineReplyNoMention(`Incorret syntax! Use ${prefix}${alias} ${expectedArgs}.`)
                     .then(message => {
-                        setTimeout(() => message.delete(), 10000)
+                        setTimeout(() => message.delete(), 3000)
                        })
                     return
                 }
 
-                //Handle custom command code.
+                //Handle custom command outputs.
                 callback(message, arguments, arguments.join(' '))
                 
 
@@ -130,6 +143,7 @@ module.exports = (client, commandOptions) => {
     })
 }
 
+//Load mongo and custom prefixes.
 module.exports.loadPrefixes = async (client) => {
     await mongo().then(async mongoose => {
         try {

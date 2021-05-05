@@ -6,7 +6,7 @@ module.exports = {
         //Use targeted channel
         const targetChannel = message.mentions.channels.first();
         if (!targetChannel) {
-            message.reply('please specifiy channel.')
+            message.lineReplyNoMention('Please specifiy channel.')
             .then(message => {
                 setTimeout(() => message.delete(), 10000)
                })
@@ -26,15 +26,15 @@ module.exports = {
             embed: json
         })
 
-        //Reply to confirm
-        message.reply('message sent!')
+        //lineReplyNoMention to confirm
+        message.lineReplyNoMention('Message sent!')
         .then(message => {
             setTimeout(() => message.delete(), 2000)
            })
         message.delete()
 
        } catch (error) {
-           message.reply(`you used invalid JSON data!\n ${error.message}`)
+           message.lineReplyNoMention(`You used invalid JSON data!\n ${error.message}`)
            .then(message => {
             setTimeout(() => message.delete(), 10000)
            })
