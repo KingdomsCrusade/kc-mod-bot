@@ -19,7 +19,7 @@ You may also need to change channel and guild IDs in some of the `commands` and 
 The following additions are planned to be implemented:
 
  * Fun Commands
- * Mute, Ban, Kick, ~~Clear~~ Commands
+ * Mute, ~~Ban~~, Kick, ~~Clear~~ Commands
  * Reaction Roles
  * Haha Board
  * Board of Shame/Delete votes
