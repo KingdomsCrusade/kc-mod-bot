@@ -5,10 +5,10 @@ const reqString = {
   required: true,
 }
 
-const welcomeSchema = new mongoose.Schema({
-  // Guild ID
+const welcomeSchema = mongoose.Schema({
   _id: reqString,
   channelId: reqString,
+  text: reqString,
 })
 
 module.exports = mongoose.model('canvas-welcome', welcomeSchema)

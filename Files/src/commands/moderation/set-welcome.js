@@ -1,6 +1,7 @@
 const welcomeSchema = require('../../schemas/welcome-schema')
 const mongo = require('../../mongo')
 const cache = new Map()
+const mongoose = require ('mongoose')
 
 const loadData = async () => {
   const results = await welcomeSchema.find()
@@ -17,8 +18,8 @@ module.exports = {
   permissions: 'MANAGE_GUILD',
   callback: async (message, arguments, text) => {
     const { guild, channel } = message
-    await mongo().then(async mongoose => {
-      try {
+
+
     await welcomeSchema.findOneAndUpdate(
       {
         _id: guild.id,
@@ -35,10 +36,6 @@ module.exports = {
     cache.set(guild.id, channel.id)
 
     message.lineReplyNoMention('Welcome channel set!')
-      } finally {
-        mongoose.connection.close()
-      }
-    })
   }
 }
 

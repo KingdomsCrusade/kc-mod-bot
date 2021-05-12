@@ -18,7 +18,7 @@ module.exports = {
   callback: async (message, arguments, text) => {
     const { guild, channel } = message
     await mongo().then(async mongoose => {
-      try {
+
     await starboardSchema.findOneAndUpdate(
       {
         _id: guild.id,
@@ -35,9 +35,7 @@ module.exports = {
     cache.set(guild.id, channel.id)
 
     message.lineReplyNoMention('Starboard channel set!')
-      } finally {
-        mongoose.connection.close()
-      }
+
     })
   }
 }

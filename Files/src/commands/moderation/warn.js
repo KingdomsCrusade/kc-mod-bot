@@ -29,7 +29,7 @@ module.exports = {
     }
 
     await mongo().then(async (mongoose) => {
-      try {
+
         await warnSchema.findOneAndUpdate(
           {
             guildId,
@@ -46,10 +46,9 @@ module.exports = {
             upsert: true,
           }
         )
-      } finally {
-        mongoose.connection.close()
+
         message.lineReplyNoMention('Target warned.')
-      }
+      
     })
   },
 }

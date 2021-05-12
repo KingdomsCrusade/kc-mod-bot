@@ -1,5 +1,6 @@
 const mongo = require('../mongo')
 const fs = require('fs')
+const mongoose = require ('mongoose')
 const commandPrefixSchema = require('../schemas/command-prefix-schema')
 const guildPrefixes = {} // { 'guildID' : 'prefix' }
 const { prefix: globalPrefix } = require('../config.json')
@@ -146,17 +147,12 @@ module.exports = (client, commandOptions) => {
 //Load mongo and custom prefixes.
 module.exports.loadPrefixes = async (client) => {
     await mongo().then(async mongoose => {
-        try {
             for (const guild of client.guilds.cache) {
                 const guildId = guild[1].id
                 const result = await commandPrefixSchema.findOne({ _id: guildId })
                 guildPrefixes[guildId] = result.prefix
             }
-
             console.log(guildPrefixes)
-        } finally {
-            mongoose.connection.close()
-        }
     })
    
 }

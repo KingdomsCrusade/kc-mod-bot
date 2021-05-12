@@ -1,8 +1,10 @@
 {
-    "PREFIX": "insertYourBasePrefix",
-    "mongoPath": "insertMongoURI",
-    "TENORKEY": "insertGifKeyHere(optional - not needed yet)",
-    "version": "KC Bot - Version 1.0.5",
-    "bot-token": "insertYourBotTokenHere",
-    "embedIcon": "https://i.imgur.com/wNvajsi.png"
+    "globalPrefix": "kc!",
+    "prefix": "kc!",
+    "mongoPath": "mongoURI",
+    "TENORKEY": "TenorGIFKey",
+    "version": "KC Bot - Version 1.0.6 (Beta)",
+    "botToken": "yourOWNbotToken",
+    "embedIcon": "https://i.imgur.com/wNvajsi.png",
+    "bannedWords": ["titties", "nudes", "dickhead", "cocaine", "pussy", "fucktard", "gaylord", "libtard", "cuck", "cucklord", "gaylors", "orgasm", "sex", "cum", "niggur", "nignog", "cumsickle", "retard", "threesome", "foursome", "cunt", "condom", "WetAssPussy", "negro", "negros", "hore", "whore", "masturbating", "fag", "nigger", "nigga", "nibba", "niga", "n1gger", "n1gga", "cock", "cum", "vagina", "hentai", "penis", "milf", "porn", "pornhub", "pornhubpremium", "dildo", "rape", "anal", "clit", "dick", "pussy", "orgy", "gangbang", "hcodes", "fetish", "pedo", "pedophile", "porno", "pornos", "pussys", "pussies", "pornography", "pedophilia", "pedophilliac", "phonesex", "dildos", "fisting", "doggystyle", "doggiestyle", "fingerfuck", "blowjob", "handjob", "wanking", "nazi"]
 }

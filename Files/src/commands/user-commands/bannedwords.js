@@ -18,8 +18,9 @@ module.exports  = {
            .addField('The following words are banned:\n', `\`\`\`${bannedWords.join(", ")}\`\`\``)
            .setColor('#a3ebfb')
            .setFooter(`${version}`, embedIcon)
-       message.lineReplyNoMention("I've DMed you with a list of all the banned words!")
        message.author.send(embed)
+       .catch(() => message.lineReplyNoMention("It looks like you might have your DMs turned off!"))
+       message.lineReplyNoMention("I've DMed you with a list of all the banned words!")
     },
     permissions: 'SEND_MESSAGES'
 }

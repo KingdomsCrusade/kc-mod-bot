@@ -17,7 +17,7 @@ module.exports = {
     const userId = target.id
 
     await mongo().then(async (mongoose) => {
-      try {
+
         const results = await warnSchema.findOne({
           guildId,
           userId,
@@ -37,9 +37,6 @@ module.exports = {
         return
     }
         message.lineReplyNoMention(reply)
-      } finally {
-        mongoose.connection.close()
-      }
     })
   },
 }
