@@ -15,13 +15,8 @@ const mongo = require('./mongo')
 const config = require('./config.json')
 
 //Import scripts
+const loadScripts = require('./scripts/load-scripts')
 const loadCommands = require('./commands/load-commands')
-const starboard = require('./scripts/starboard')
-const welcome = require('./scripts/canvas-welcome')
-const stats = require('./scripts/channel-stats')
-const status = require('./scripts/set-status')
-const blocked_words = require('./scripts/blocked_words')
-const kc_scripts = require('./scripts/kc-only')
 
 //Load other stuff
 const commandBase = require('./commands/command-base')
@@ -37,10 +32,5 @@ client.on('ready', async () => {
     //Load scripts and commands
     loadCommands(client)
     commandBase.loadPrefixes(client)
-    kc_scripts(client)
-    blocked_words(client)
-    welcome(client)
-    starboard(client)
-    stats(client)
-    status(client)
+    loadScripts(client)
 });
