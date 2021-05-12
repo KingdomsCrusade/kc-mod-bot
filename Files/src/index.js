@@ -26,7 +26,8 @@ client.login(`${botToken}`)
 
 client.on('ready', async () => {
     console.log("Credit to Zaczer#0005")
-
+    const defaultstatus = client.guilds.cache.reduce((a, g) => a + g.memberCount, 0)
+    client.user.setActivity(`${defaultstatus} guild members.`, {type: `WATCHING`})
     //Connect to mongo
     await mongo()
     //Load scripts and commands

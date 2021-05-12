@@ -1,7 +1,7 @@
 module.exports = (client) => {
 const { Client, MessageEmbed} = require('discord.js');
 
-const { getChannelId } = require('../commands/moderation/set-starboard')
+const { getChannelId } = require('../../commands/moderation/set-starboard')
 const settings = {
 	channel: '809783638899425290', // Starboard channel id
 	emoji: '⭐' // Emoji
