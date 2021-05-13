@@ -26,7 +26,7 @@ module.exports = (client) => {
     const ctx = canvas.getContext('2d')
     // Load the background image and draw it to the canvas
     const background = await Canvas.loadImage(
-      path.join(__dirname, '../wbg.png')
+      path.join(__dirname, '../../wbg.png')
     )
     let x = 0
     let y = 0
@@ -51,7 +51,7 @@ module.exports = (client) => {
     text = `Member #${guild.memberCount}`
     x = canvas.width / 2 - ctx.measureText(text).width / 2
     ctx.fillText(text, x, 100 + pfp.height)
-    // Attach the image to a message and send it
+    // Attach the image
     const attachment = new MessageAttachment(canvas.toBuffer())
   
     //KC Only
@@ -61,6 +61,7 @@ module.exports = (client) => {
       channel.send(`Welcome, <@${member.id}> to Kingdoms Crusade! Make sure you read ${member.guild.channels.cache.get(targetChannelID).toString()} and ${member.guild.channels.cache.get(targetChannelID2).toString()}!`, attachment)
     } else {
 
+    //Send message
     channel.send(`Welcome, <@${member.id}>!`, attachment)
     }
   })
