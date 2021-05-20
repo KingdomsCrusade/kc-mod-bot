@@ -31,26 +31,43 @@ module.exports = (client) => {
     let x = 0
     let y = 0
     ctx.drawImage(background, x, y)
-    // Load the user's profile picture and draw it
-    const pfp = await Canvas.loadImage(
-      member.user.displayAvatarURL({
-        format: 'png',
-      })
-    )
-    x = canvas.width / 2 - pfp.width / 2
-    y = 25
-    ctx.drawImage(pfp, x, y)
+
+
+
     // Display user text
     ctx.fillStyle = '#ffffff' // White text
     ctx.font = '30px Lilita One'
     let text = `Welcome ${member.user.tag}!`
     x = canvas.width / 2 - ctx.measureText(text).width / 2
-    ctx.fillText(text, x, 60 + pfp.height)
+    ctx.fillText(text, x, 55 + 128)
     // Display member count
     ctx.font = '25px Lilita One'
     text = `Member #${guild.memberCount}`
     x = canvas.width / 2 - ctx.measureText(text).width / 2
-    ctx.fillText(text, x, 100 + pfp.height)
+    ctx.fillText(text, x, 95 + 128)
+
+    
+        // Pick up the pen
+        ctx.beginPath();
+        // Start the arc to form a circle
+        ctx.arc(350, 90, 60, 0, Math.PI * 2, true);
+        // Put the pen down
+        ctx.closePath();
+        // Clip off the region
+        ctx.clip();
+
+        
+        // Load the user's profile picture and draw it
+        const pfp = await Canvas.loadImage(
+          member.user.displayAvatarURL({
+            format: 'png',
+          })
+        )
+        x = canvas.width / 2 - pfp.width / 2 +4
+        y = 30
+        ctx.drawImage(pfp, x, y, 120, 120)
+
+
     // Attach the image
     const attachment = new MessageAttachment(canvas.toBuffer())
   
@@ -65,4 +82,9 @@ module.exports = (client) => {
     channel.send(`Welcome, <@${member.id}>!`, attachment)
     }
   })
+  client.on('message', message => {
+    if (message.content === 'kc!join') {
+      client.emit('guildMemberAdd', message.member)
+    }
+  });
 }
