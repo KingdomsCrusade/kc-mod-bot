@@ -3,7 +3,6 @@ const { botToken } = require('./config.json')
 
 //Load modules etc.
 const { MongoClient } = require('mongodb')
-
 const mongoose = require ('mongoose')
 const path = require('path')
 const fs = require('fs')

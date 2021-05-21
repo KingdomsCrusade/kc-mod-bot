@@ -82,9 +82,4 @@ module.exports = (client) => {
     channel.send(`Welcome, <@${member.id}>!`, attachment)
     }
   })
-  client.on('message', message => {
-    if (message.content === 'kc!join') {
-      client.emit('guildMemberAdd', message.member)
-    }
-  });
 }
