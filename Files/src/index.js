@@ -12,6 +12,7 @@ const Discord = require('discord.js')
 const client = new Client();
 const mongo = require('./mongo')
 const config = require('./config.json')
+require('events').EventEmitter.defaultMaxListeners = 30
 
 //Import scripts
 const loadScripts = require('./scripts/load-scripts')
