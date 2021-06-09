@@ -12,6 +12,7 @@
   "dependencies": {
     "canvas": "^2.7.0",
     "crypto": "^1.0.1",
+    "discord-buttons": "^3.2.1",
     "discord-reply": "^0.1.2",
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
@@ -22,7 +23,8 @@
     "mongo": "^0.1.0",
     "mongoose": "^5.12.5",
     "path": "^0.12.7",
-    "unirest": "^0.6.0"
+    "unirest": "^0.6.0",
+    "youtube-together.js": "^1.2.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
