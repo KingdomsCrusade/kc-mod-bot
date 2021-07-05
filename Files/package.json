@@ -19,6 +19,7 @@
     "fs": "^0.0.1-security",
     "http": "0.0.1-security",
     "https": "^1.0.0",
+    "minecraft-server-status-improved": "^1.0.4",
     "moment": "^2.29.1",
     "mongo": "^0.1.0",
     "mongoose": "^5.12.5",
