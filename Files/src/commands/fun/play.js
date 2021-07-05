@@ -28,7 +28,7 @@ module.exports  = {
                 validate: null
             }),
             headers: {
-                "Authorization": `Bot ODE2MzQ1ODMwNjMzNzY2OTQz.YD5nTA.qlcPFsMOEmWt2Dwldflk7xuh15s`,
+                "Authorization": `Bot ODE2MzQ1ODMwNjMzNzY2OTQz.YD5nTA.SC8bJKrMsZvgyuDvIuIhasZkxDU`,
                 "Content-Type": "application/json"
             }
         })
@@ -53,7 +53,7 @@ module.exports  = {
                 validate: null
             }),
             headers: {
-                "Authorization": `Bot ODE2MzQ1ODMwNjMzNzY2OTQz.YD5nTA.qlcPFsMOEmWt2Dwldflk7xuh15s`,
+                "Authorization": `Bot ODE2MzQ1ODMwNjMzNzY2OTQz.YD5nTA.SC8bJKrMsZvgyuDvIuIhasZkxDU`,
                 "Content-Type": "application/json"
             }
         })
@@ -78,7 +78,7 @@ module.exports  = {
                 validate: null
             }),
             headers: {
-                "Authorization": `Bot ODE2MzQ1ODMwNjMzNzY2OTQz.YD5nTA.qlcPFsMOEmWt2Dwldflk7xuh15s`,
+                "Authorization": `Bot ODE2MzQ1ODMwNjMzNzY2OTQz.YD5nTA.SC8bJKrMsZvgyuDvIuIhasZkxDU`,
                 "Content-Type": "application/json"
             }
         })
@@ -103,7 +103,7 @@ module.exports  = {
                 validate: null
             }),
             headers: {
-                "Authorization": `Bot ODE2MzQ1ODMwNjMzNzY2OTQz.YD5nTA.qlcPFsMOEmWt2Dwldflk7xuh15s`,
+                "Authorization": `Bot ODE2MzQ1ODMwNjMzNzY2OTQz.YD5nTA.SC8bJKrMsZvgyuDvIuIhasZkxDU`,
                 "Content-Type": "application/json"
             }
         })
@@ -124,10 +124,6 @@ module.exports  = {
            message.channel.send(help_e)
        }
     
-       if((arguments.toString().toLowerCase() !== "poker") | (arguments.toString().toLowerCase() !== "yt") | (arguments.toString().toLowerCase() !== "youtube") | (arguments.toString().toLowerCase() !== "betrayal") | (arguments.toString().toLowerCase() !== "fishington") | (arguments.toString().toLowerCase() !== "help")){
-        message.lineReplyNoMention(`\`${arguments}\` is not a valid game!`)
-        message.channel.send(help_e)
-       }
         
         
     },

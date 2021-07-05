@@ -9,7 +9,7 @@ module.exports = client => {
 
             if((msg.author.id == 800470294979543068) & (list.some(w => ` ${msg.content.toLowerCase()} `.includes(` ${w} `)))) {
                 const arguments = msg.content.split(/[ ]+/)
-                let name =  arguments[0].replace(/,/g, "")
+                let name =  arguments[0].replace(/\*/g, '')
                 msg.channel.send(`${name}, please refrain from using banned/NSFW words.`)
                 msg.channel.send(`/warn ${name} using inappropriate  language.`)
                 .then(message => {
