@@ -28,7 +28,7 @@ module.exports  = {
                 validate: null
             }),
             headers: {
-                "Authorization": `Bot ODE2MzQ1ODMwNjMzNzY2OTQz.YD5nTA.SC8bJKrMsZvgyuDvIuIhasZkxDU`,
+                "Authorization": `Bot ODE2MzQ1ODMwNjMzNzY2OTQz.YD5nTA.lI3tl9klv-0V2l8d8EK5DGMKTfU`,
                 "Content-Type": "application/json"
             }
         })
@@ -53,7 +53,7 @@ module.exports  = {
                 validate: null
             }),
             headers: {
-                "Authorization": `Bot ODE2MzQ1ODMwNjMzNzY2OTQz.YD5nTA.SC8bJKrMsZvgyuDvIuIhasZkxDU`,
+                "Authorization": `Bot ODE2MzQ1ODMwNjMzNzY2OTQz.YD5nTA.lI3tl9klv-0V2l8d8EK5DGMKTfU`,
                 "Content-Type": "application/json"
             }
         })
@@ -78,7 +78,7 @@ module.exports  = {
                 validate: null
             }),
             headers: {
-                "Authorization": `Bot ODE2MzQ1ODMwNjMzNzY2OTQz.YD5nTA.SC8bJKrMsZvgyuDvIuIhasZkxDU`,
+                "Authorization": `Bot ODE2MzQ1ODMwNjMzNzY2OTQz.YD5nTA.lI3tl9klv-0V2l8d8EK5DGMKTfU`,
                 "Content-Type": "application/json"
             }
         })
@@ -103,7 +103,7 @@ module.exports  = {
                 validate: null
             }),
             headers: {
-                "Authorization": `Bot ODE2MzQ1ODMwNjMzNzY2OTQz.YD5nTA.SC8bJKrMsZvgyuDvIuIhasZkxDU`,
+                "Authorization": `Bot ODE2MzQ1ODMwNjMzNzY2OTQz.YD5nTA.lI3tl9klv-0V2l8d8EK5DGMKTfU`,
                 "Content-Type": "application/json"
             }
         })

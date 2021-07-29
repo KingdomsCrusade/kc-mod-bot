@@ -47,7 +47,7 @@ module.exports  = {
     
            reply = new Discord.MessageEmbed()
           .setTitle(`__All Commands:__`)
-          .addField(`**\`${mainCommand}${args}\`** = ${description}\n`)
+          .addField('\n', `**\`${mainCommand}${args}\`** = ${description}\n`)
           .setColor('#a3ebfb')
           .setFooter(`${version}`, embedIcon)
         }
