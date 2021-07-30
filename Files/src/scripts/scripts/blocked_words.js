@@ -1,12 +1,12 @@
 const Discord = require('discord.js')
-
+const { bannedWords } = require('../../config.json')
+console.log("Banned words:\n", bannedWords)
 module.exports = client => {
 
     client.on('message', async(msg) => {
         if(!msg.guild) return;
         var regex = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g;
-        var list = ["titties", "turkroach", "mongloid", "niqpa", "gigga", "necrophiliac", "necrophilia", "corpsefucker", "jewpedo", "dyke", "xxxvids", "femboy", "slave", "brazzers", "kike", "jewnigger", "jewfag", "goy", "goyim", "coon", "faggot", "cunt", "spic", "tranny", "fapping", "subhuman", "aryan", "hitler", "natsoc", "beaner", "sandnigger", "nudes", "dickhead", "cocaine", "pussy", "fucktard", "gaylord", "libtard", "cuck", "cucklord", "gaylors", "orgasm", "sex", "cum", "niggur", "nignog", "cumsickle", "retard", "threesome", "foursome", "cunt", "condom", "WetAssPussy", "negro", "negros", "hore", "whore", "masturbating", "fag", "nigger", "nigga", "nibba", "niga", "n1gger", "n1gga", "cock", "cum", "vagina", "hentai", "penis", "milf", "porn", "pornhub", "pornhubpremium", "dildo", "rape", "anal", "clit", "dick", "pussy", "orgy", "gangbang", "hcodes", "fetish", "pedo", "pedophile", "porno", "pornos", "pussys", "pussies", "pornography", "pedophilia", "pedophilliac", "phonesex", "dildos", "fisting", "doggystyle", "doggiestyle", "fingerfuck", "blowjob", "handjob", "wanking", "nazi"]
-
+        var list = bannedWords
             if((msg.author.id == 800470294979543068) & (list.some(w => ` ${msg.content.toLowerCase()} `.includes(` ${w} `)))) {
                 const arguments = msg.content.split(/[ ]+/)
                 let name =  arguments[0].replace(/\*/g, '')
