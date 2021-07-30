@@ -25,6 +25,8 @@ The following additions are planned to be implemented:
  * Board of Shame/Delete votes
  * NameMC Commands
  * Help/Commands-List Command
+ * Mongo-based banned words
+ * Enable/disable script commands
 
 
 # Testing/Discord
