@@ -145,14 +145,23 @@ module.exports = (client, commandOptions) => {
 }
 
 //Load mongo and custom prefixes.
+module.exports.updateCache = (guildId, newPrefix) => {
+    guildPrefixes[guildId] = newPrefix
+  }
+  
 module.exports.loadPrefixes = async (client) => {
-    await mongo().then(async mongoose => {
-            for (const guild of client.guilds.cache) {
-                const guildId = guild[1].id
-                const result = await commandPrefixSchema.findOne({ _id: guildId })
-                guildPrefixes[guildId] = result.prefix
-            }
-            console.log(guildPrefixes)
+    await mongo().then(async (mongoose) => {
+      try {
+        for (const guild of client.guilds.cache) {
+          const guildId = guild[1].id
+  
+          const result = await commandPrefixSchema.findOne({ _id: guildId })
+          guildPrefixes[guildId] = result.prefix
+        }
+  
+        console.log(guildPrefixes)
+      } catch {
+        console.log("Not all servers contain custom prefixes.")
+      }
     })
-   
-}
+  }

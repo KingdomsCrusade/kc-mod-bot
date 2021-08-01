@@ -34,4 +34,4 @@ client.on('ready', async () => {
     loadCommands(client)
     commandBase.loadPrefixes(client)
     loadScripts(client)
-});
+})
