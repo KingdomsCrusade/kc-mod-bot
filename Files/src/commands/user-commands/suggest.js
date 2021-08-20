@@ -4,6 +4,7 @@ const { Client, Channel } = require ('discord.js')
 const client = new Client()
 const path = require('path')
 const { getChannelId } = require('../../commands/moderation/set-suggestions')
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 
 module.exports  = {
     commands:['suggest', 'suggestion', 'suggestions'],
@@ -32,7 +33,7 @@ module.exports  = {
            channel.send(embed).then((msg) => {
                msg.react('<:upvote:707157967471902731>')
                msg.react('<:downvote:707158001496096808>')
-               message.delete()
+               setTimeout(() => message.delete(), 3000)
 
            }).catch((err) => {
                throw err

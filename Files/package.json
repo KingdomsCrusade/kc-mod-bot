@@ -10,6 +10,8 @@
   "author": "Zaczer",
   "license": "ISC",
   "dependencies": {
+    "@sentry/node": "^6.10.0",
+    "@sentry/tracing": "^6.10.0",
     "canvas": "^2.7.0",
     "crypto": "^1.0.1",
     "discord-buttons": "^3.2.1",
