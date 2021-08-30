@@ -100,7 +100,7 @@ module.exports = (client, commandOptions) => {
                 for (const permission of permissions) {
                     if (!member.hasPermission(permission)) {
                         message.lineReplyNoMention(permissionError)
-                        .then(message => {
+                        .then(message => {760398035389382686-881293713765175327
                             setTimeout(() => message.delete(), 3000)
                            })
                         return
@@ -111,11 +111,8 @@ module.exports = (client, commandOptions) => {
                     const role = guild.roles.cache.find(role => 
                     role.name == requiredRole)
 
-                    if (!role || member.roles.cache.has(role.id)) {
-                        member.lineReplyNoMention(`You must have the "${requiredRole} role to use this command.`)
-                        .then(message => {
-                            setTimeout(() => message.delete(), 3000)
-                           })
+                    if (!role || member.roles.cache.has(role.name)) {
+                        message.lineReplyNoMention(`You must have the "${requiredRole}" role to use this command.`)
                         return
                     }
                 }

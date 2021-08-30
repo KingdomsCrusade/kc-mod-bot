@@ -4,6 +4,8 @@ const Canvas = require('canvas')
 const { MessageAttachment } = require('discord.js')
 const path = require('path')
 const { getChannelId } = require('../../commands/moderation/set-welcome')
+const Discord = require('discord.js')
+const client = new Discord.Client({disableEveryone: true, partials: ['MESSAGE', 'REACTION']});
 
 module.exports = (client) => {
   client.on('guildMemberAdd', async (member) => {
@@ -21,55 +23,44 @@ module.exports = (client) => {
       return
     }
 
-    // Create a canvas and access the 2d context
-    const canvas = Canvas.createCanvas(700, 250)
-    const ctx = canvas.getContext('2d')
-    // Load the background image and draw it to the canvas
+    var welcomeCanvas = {};
+    welcomeCanvas.create = Canvas.createCanvas(1024, 500)
+    welcomeCanvas.context = welcomeCanvas.create.getContext('2d')
+    welcomeCanvas.context.font = '72px Lilita One';
+    welcomeCanvas.context.fillStyle = '#ffffff';
     const background = await Canvas.loadImage(
       path.join(__dirname, '../../wbg.png')
     )
     let x = 0
     let y = 0
-    ctx.drawImage(background, x, y)
+    welcomeCanvas.context.drawImage(background, x, y)
+    welcomeCanvas.context.fillText("Welcome!", 360, 360);
+    welcomeCanvas.context.beginPath();
+    welcomeCanvas.context.arc(512, 166, 128, 0, Math.PI * 2, true);
+    welcomeCanvas.context.stroke()
+    welcomeCanvas.context.fill()
 
 
-
-    // Display user text
-    ctx.fillStyle = '#ffffff' // White text
-    ctx.font = '30px Lilita One'
-    let text = `Welcome ${member.user.tag}!`
-    x = canvas.width / 2 - ctx.measureText(text).width / 2
-    ctx.fillText(text, x, 55 + 128)
-    // Display member count
-    ctx.font = '25px Lilita One'
-    text = `Member #${guild.memberCount}`
-    x = canvas.width / 2 - ctx.measureText(text).width / 2
-    ctx.fillText(text, x, 95 + 128)
-
-    
-        // Pick up the pen
-        ctx.beginPath();
-        // Start the arc to form a circle
-        ctx.arc(350, 90, 60, 0, Math.PI * 2, true);
-        // Put the pen down
-        ctx.closePath();
-        // Clip off the region
-        ctx.clip();
-
-        
-        // Load the user's profile picture and draw it
-        const pfp = await Canvas.loadImage(
-          member.user.displayAvatarURL({
-            format: 'png',
-          })
-        )
-        x = canvas.width / 2 - pfp.width / 2 +4
-        y = 30
-        ctx.drawImage(pfp, x, y, 120, 120)
+const welcomechannel = client.channels.cache.get('831591937873412126')
+    let canvas = welcomeCanvas;
+    canvas.context.font = '42px Lilita One',
+    canvas.context.textAlign = 'center';
+    let text = `${member.user.tag}`
+    canvas.context.fillText(text, 512, 410)
+    canvas.context.font = '32px Lilita One'
+    canvas.context.fillText(`Member #${member.guild.memberCount}`, 512, 455)
+    canvas.context.beginPath()
+    canvas.context.arc(512, 166, 119, 0, Math.PI * 2, true)
+    canvas.context.closePath()
+    canvas.context.clip()
+    await Canvas.loadImage(member.user.displayAvatarURL({format: 'png', size: 1024}))
+    .then(img => {
+        canvas.context.drawImage(img, 393, 47, 238, 238);
+    })
 
 
     // Attach the image
-    const attachment = new MessageAttachment(canvas.toBuffer())
+    const attachment = new Discord.MessageAttachment(canvas.create.toBuffer(), `welcome-${member.id}.png`)
   
     //KC Only
     if (channelId === '743530164041809932') {
@@ -79,7 +70,7 @@ module.exports = (client) => {
     } else {
 
     //Send message
-    channel.send(`Welcome, <@${member.id}>!`, attachment)
+    welcomechannel.send(`Welcome, <@${member.id}>!`, attachment)
     }
   })
 }
