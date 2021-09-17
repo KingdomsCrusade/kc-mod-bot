@@ -41,7 +41,6 @@ module.exports = (client) => {
     welcomeCanvas.context.fill()
 
 
-const welcomechannel = client.channels.cache.get('831591937873412126')
     let canvas = welcomeCanvas;
     canvas.context.font = '42px Lilita One',
     canvas.context.textAlign = 'center';
@@ -70,7 +69,7 @@ const welcomechannel = client.channels.cache.get('831591937873412126')
     } else {
 
     //Send message
-    welcomechannel.send(`Welcome, <@${member.id}>!`, attachment)
+    channel.send(`Welcome, <@${member.id}>!`, attachment)
     }
   })
 }
