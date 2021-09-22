@@ -24,12 +24,14 @@ module.exports = (client) => {
     }
 
     var welcomeCanvas = {};
+    var ranNum = Math.floor(Math.random() * 10) + 1;
     welcomeCanvas.create = Canvas.createCanvas(1024, 500)
     welcomeCanvas.context = welcomeCanvas.create.getContext('2d')
     welcomeCanvas.context.font = '72px Lilita One';
     welcomeCanvas.context.fillStyle = '#ffffff';
     const background = await Canvas.loadImage(
-      path.join(__dirname, '../../wbg.png')
+      
+      path.join(__dirname, `../../wbg${ranNum}.png`)
     )
     let x = 0
     let y = 0
