@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "canvas": "^2.8.0",
+    "discord-reply": "^0.1.2",
+    "minecraft-server-status-improved": "^1.0.4",
+    "mongodb": "^4.2.2",
+    "mongoose": "^6.1.2"
+  }
+}
