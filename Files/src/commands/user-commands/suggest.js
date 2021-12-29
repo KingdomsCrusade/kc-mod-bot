@@ -23,14 +23,14 @@ module.exports  = {
     }
 
     let messageArgs = arguments.join(' ')
-    const embed = new Discord.MessageEmbed()
+    if (message.content.endsWith("-a")) {
+       var suggestionContent = messageArgs.replace('-a','');
+       const embed = new Discord.MessageEmbed()
            .setColor('#a3ebfb')
-           .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-           .setDescription(messageArgs)
+           .setAuthor('Anonymous', 'https://cdn.discordapp.com/avatars/816345830633766943/20bb085739dc59fd91f9395bc3caf22b.png')
+           .setDescription(suggestionContent)
            if(message.attachments.size > 0) embed.setImage(message.attachments.first().url)
-
-    
-           channel.send(embed).then((msg) => {
+                   channel.send(embed).then((msg) => {
                msg.react('<:upvote:707157967471902731>')
                msg.react('<:downvote:707158001496096808>')
                setTimeout(() => message.delete(), 3000)
@@ -38,6 +38,24 @@ module.exports  = {
            }).catch((err) => {
                throw err
            })
+    } else{
+       const embed = new Discord.MessageEmbed()
+           .setColor('#a3ebfb')
+           .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+           .setDescription(messageArgs)
+           if(message.attachments.size > 0) embed.setImage(message.attachments.first().url)
+                   channel.send(embed).then((msg) => {
+               msg.react('<:upvote:707157967471902731>')
+               msg.react('<:downvote:707158001496096808>')
+               setTimeout(() => message.delete(), 3000)
+
+           }).catch((err) => {
+               throw err
+           })
+
+    }
+
+    
     },
     permissions: 'SEND_MESSAGES'
 }
