@@ -5,7 +5,7 @@ const { MessageAttachment } = require('discord.js')
 const path = require('path')
 const { getChannelId } = require('../../commands/moderation/set-welcome')
 const Discord = require('discord.js')
-const client = new Discord.Client({disableEveryone: true, partials: ['MESSAGE', 'REACTION']});
+const client = new Discord.Client({disableEveryone: true, partials: ['MESSAGE', 'REACTION']})
 
 module.exports = (client) => {
   client.on('guildMemberAdd', async (member) => {
@@ -23,12 +23,12 @@ module.exports = (client) => {
       return
     }
 
-    var welcomeCanvas = {};
-    var ranNum = Math.floor(Math.random() * 10) + 1;
+    var welcomeCanvas = {}
+    var ranNum = Math.floor(Math.random() * 10) + 1
     welcomeCanvas.create = Canvas.createCanvas(1024, 500)
     welcomeCanvas.context = welcomeCanvas.create.getContext('2d')
-    welcomeCanvas.context.font = '72px Lilita One';
-    welcomeCanvas.context.fillStyle = '#ffffff';
+    welcomeCanvas.context.font = '72px Lilita One'
+    welcomeCanvas.context.fillStyle = '#ffffff'
     const background = await Canvas.loadImage(
       
       path.join(__dirname, `../../wbg${ranNum}.png`)
@@ -36,16 +36,16 @@ module.exports = (client) => {
     let x = 0
     let y = 0
     welcomeCanvas.context.drawImage(background, x, y)
-    welcomeCanvas.context.fillText("Welcome!", 360, 360);
-    welcomeCanvas.context.beginPath();
-    welcomeCanvas.context.arc(512, 166, 128, 0, Math.PI * 2, true);
+    welcomeCanvas.context.fillText("Welcome!", 360, 360)
+    welcomeCanvas.context.beginPath()
+    welcomeCanvas.context.arc(512, 166, 128, 0, Math.PI * 2, true)
     welcomeCanvas.context.stroke()
     welcomeCanvas.context.fill()
 
 
-    let canvas = welcomeCanvas;
+    let canvas = welcomeCanvas
     canvas.context.font = '42px Lilita One',
-    canvas.context.textAlign = 'center';
+    canvas.context.textAlign = 'center'
     let text = `${member.user.tag}`
     canvas.context.fillText(text, 512, 410)
     canvas.context.font = '32px Lilita One'
@@ -56,7 +56,7 @@ module.exports = (client) => {
     canvas.context.clip()
     await Canvas.loadImage(member.user.displayAvatarURL({format: 'png', size: 1024}))
     .then(img => {
-        canvas.context.drawImage(img, 393, 47, 238, 238);
+        canvas.context.drawImage(img, 393, 47, 238, 238)
     })
 
 

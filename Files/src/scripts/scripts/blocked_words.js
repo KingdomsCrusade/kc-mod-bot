@@ -4,13 +4,13 @@ console.log("Banned words:\n", bannedWords)
 module.exports = client => {
 
     client.on('message', async(msg) => {
-        if(!msg.guild) return;
+        if(!msg.guild) return
         var list = bannedWords
         function removeFromString(str){
-            let regex = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g;
+            let regex = /[!"#$%&'()*+,-./:<=>?@[\]^_`{|}~]/g
             return str.replace(regex, '')
           }
-        const filteredMessage = removeFromString(`${msg.content.toLowerCase()}`);
+        const filteredMessage = removeFromString(`${msg.content.toLowerCase()}`)
             if((msg.author.id == 800470294979543068) & (list.some(w => ` ${filteredMessage} `.includes(` ${w} `)))) {
                 const arguments = msg.content.split(/[ ]+/)
                 let name =  arguments[0].replace(/\*/g, '')
@@ -20,7 +20,7 @@ module.exports = client => {
                     setTimeout(() => message.delete(), 1000)
                    })
             } else if((list.some(w => ` ${filteredMessage} `.includes(` ${w} `)))){
-                msg.delete();
+                msg.delete()
                 msg.reply('please refrain from using banned/NSFW words.')
             }
         

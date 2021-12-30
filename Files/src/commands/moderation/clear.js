@@ -1,5 +1,5 @@
 const { Client, Channel } = require ('discord.js')
-const client = new Client();
+const client = new Client()
 
 module.exports  = {
     commands:['clear', 'purge'],
@@ -8,8 +8,8 @@ module.exports  = {
     maxArgs: 1,
     callback: async (message, arguments, text) => {
 
-        let amount = arguments.join(" ");
-		amount++;
+        let amount = arguments.join(" ")
+		amount++
         
         if(!amount) return message.lineReplyNoMention('Please provide an amount of messages for me to delete!')
 
@@ -17,9 +17,9 @@ module.exports  = {
 
         await message.channel.messages.fetch({limit: amount}).then(messages => {
             message.channel.bulkDelete(messages
-    )});
+    )})
 
-	amount--;
+	amount--
     message.lineReplyNoMention(`Deleted ${amount} messages!`)
     .then(message => {
       setTimeout(() => message.delete(), 5000)

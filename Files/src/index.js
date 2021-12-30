@@ -9,7 +9,7 @@ const fs = require('fs')
 require('discord-reply')
 const { Client, Channel } = require ('discord.js')
 const Discord = require('discord.js')
-const client = new Client();
+const client = new Client()
 const mongo = require('./mongo')
 const config = require('./config.json')
 require('events').EventEmitter.defaultMaxListeners = 30
