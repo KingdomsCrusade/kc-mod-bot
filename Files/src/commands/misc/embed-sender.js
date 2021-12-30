@@ -4,7 +4,7 @@ module.exports = {
     expectedArgs: '<ChannelMention> <JSON Data>',
     callback: (message, arguments, text) => {
         //Use targeted channel
-        const targetChannel = message.mentions.channels.first()
+        const targetChannel = message.mentions.channels.first();
         if (!targetChannel) {
             message.lineReplyNoMention('Please specifiy channel.')
             .then(message => {

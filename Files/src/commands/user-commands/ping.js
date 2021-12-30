@@ -1,5 +1,5 @@
 const { Client, Channel } = require ('discord.js')
-const client = new Client()
+const client = new Client();
 const Discord = require('discord.js')
 const { version } = require ('../../config.json')
 const { embedIcon } = require ('../../config.json')
@@ -16,7 +16,7 @@ module.exports  = {
            .addField('Latency is:', `${Date.now() - message.createdTimestamp} ms!`)
            .setColor('#a3ebfb')
            .setFooter(`${version}`, embedIcon)
-       message.lineReplyNoMention(embed)
+       message.lineReplyNoMention(embed);
     },
     permissions: 'SEND_MESSAGES'
 }

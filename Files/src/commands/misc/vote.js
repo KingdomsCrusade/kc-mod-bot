@@ -1,5 +1,5 @@
 const { Client, Channel } = require ('discord.js')
-const client = new Client()
+const client = new Client();
 const Discord = require('discord.js')
 const { version } = require ('../../config.json')
 const { embedIcon } = require ('../../config.json')
@@ -38,13 +38,13 @@ module.exports  = {
        collector.on("collect", (reaction, user) => {
         switch (reaction.emoji.name) {
           case '<:upvote:707157967471902731>':
-            sentEmbed.edit(upvotedEmbed)
-            break
+            sentEmbed.edit(upvotedEmbed);
+            break;
           case '<:downvote:707158001496096808>':
-            sentEmbed.edit(downvotedEmbed)
-            break
+            sentEmbed.edit(downvotedEmbed);
+            break;
         }
-      })
+      });
     },
     permissions: 'MANAGE_GUILD'
 }

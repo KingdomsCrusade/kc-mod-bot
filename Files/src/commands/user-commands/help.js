@@ -1,7 +1,7 @@
 const loadCommands = require('../load-commands')
 const { prefix } = require('../../config.json')
 const { Client, Channel } = require ('discord.js')
-const client = new Client()
+const client = new Client();
 const Discord = require('discord.js')
 const { version } = require ('../../config.json')
 const { embedIcon } = require ('../../config.json')

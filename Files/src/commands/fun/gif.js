@@ -11,12 +11,12 @@ module.exports  = {
     callback: async (message, arguments, text) => {
         try { 
         keywords = arguments.join(" ")
-        let tenorURL = `https://api.tenor.com/v1/search?q=${keywords}&key=${TENORKEY}&contentfilter=high`
-        let response = await fetch(tenorURL)
-        let json = await response.json()
-        const index = Math.floor(Math.random() * json.results.length)
+        let tenorURL = `https://api.tenor.com/v1/search?q=${keywords}&key=${TENORKEY}&contentfilter=high`;
+        let response = await fetch(tenorURL);
+        let json = await response.json();
+        const index = Math.floor(Math.random() * json.results.length);
         gif = json.results[index].url
-        message.lineReplyNoMention(gif)
+        message.lineReplyNoMention(gif);
     } catch (error) {
         message.lineReplyNoMention(`Error!\n${error.message}`)
         .then(message => {
