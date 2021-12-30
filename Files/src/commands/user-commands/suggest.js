@@ -1,4 +1,3 @@
-  
 const Discord = require('discord.js');
 const { Client, Channel } = require ('discord.js')
 const client = new Client()
@@ -23,7 +22,7 @@ module.exports  = {
     }
 
     let messageArgs = arguments.join(' ')
-    if (message.content.endsWith("-a")) {
+    if (message.content.includes("-a")) {
        var suggestionContent = messageArgs.replace('-a','');
        const embed = new Discord.MessageEmbed()
            .setColor('#a3ebfb')
