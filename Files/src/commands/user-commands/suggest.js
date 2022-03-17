@@ -4,6 +4,7 @@ const client = new Client()
 const path = require('path')
 const { getChannelId } = require('../../commands/moderation/set-suggestions')
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
+const cError = "The suggestions channel has not been set."
 
 module.exports  = {
     commands:['suggest', 'suggestion', 'suggestions'],
@@ -12,14 +13,18 @@ module.exports  = {
     callback: (message, arguments, text) => {
         const { guild } = message
         const channelId = getChannelId(guild.id)
-    if (!channelId) {
-      return
-    }
+    if (!channelId) {message.lineReplyNoMention(`${cError}`)
+    .then(message => {
+           setTimeout(() => message.delete(), 5000)
+          })
+    return}
 
     const channel = guild.channels.cache.get(channelId)
-    if (!channel) {
-      return
-    }
+    if (!channel)  {message.lineReplyNoMention(`${cError}`)
+    .then(message => {
+           setTimeout(() => message.delete(), 5000)
+          })
+    return}
 
     let messageArgs = arguments.join(' ')
     if (message.content.includes("-a")) {
