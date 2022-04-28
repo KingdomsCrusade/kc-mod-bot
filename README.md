@@ -1,7 +1,8 @@
 ![Banner](https://i.imgur.com/DjFBHsG.png)
 
 # KC Mod Bot
-The KC Moderation bot for our community Discord server!
+The KC Moderation bot for the KC community Discord server!
+*The bot is slightly outdated and needs reweorking and improving.*
 
 A `config.json` file is required for the bot to run, and for it to use a database.
 
